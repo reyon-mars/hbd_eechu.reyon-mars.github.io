@@ -19,7 +19,7 @@
       margin: 0;
       padding: 0;
       width: 100%;
-      height: 100%;
+      min-height: 100%;
       font-family: Arial, sans-serif;
       background: #000;
       overflow-x: hidden;
@@ -87,10 +87,10 @@
 
       width: 100%;
       max-width: 1200px;
-      min-height: 60vh;
+      height: auto; /* Let it expand naturally */
       display: flex;
       flex-direction: column;
-      overflow: hidden;
+      overflow: visible; /* Prevent clipping */
       animation: fade-in 1.5s ease forwards;
     }
 
@@ -124,23 +124,28 @@
       flex-direction: row;
       position: relative;
       z-index: 2;
+      flex-wrap: wrap; /* allow stacking on smaller screens */
     }
 
     /* Left image */
     #glass .glass-left {
-      flex: 1;
+      flex: 1 1 50%;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 280px;
     }
 
     #glass .glass-left img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto; /* maintain aspect ratio */
+      border-bottom-left-radius: 20px;
+      border-top-left-radius: 20px;
     }
 
     /* Right text */
     #glass .glass-right {
-      flex: 1;
+      flex: 1 1 50%;
       padding: 2rem;
       display: flex;
       flex-direction: column;
@@ -159,6 +164,7 @@
       margin-bottom: 1rem;
       text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
       color: #fff8f0;
+      word-wrap: break-word;
     }
 
     #glass .glass-right p {
@@ -167,6 +173,7 @@
       line-height: 1.6;
       color: #4b1a2a;
       text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+      word-wrap: break-word;
     }
 
     /* Responsive adjustments */
@@ -176,7 +183,7 @@
       }
 
       #glass .glass-left img {
-        height: 250px;
+        border-radius: 20px 20px 0 0;
       }
 
       #glass .glass-right {
@@ -186,10 +193,6 @@
     }
 
     @media (max-width: 768px) {
-      #glass .glass-left img {
-        height: 200px;
-      }
-
       #glass .glass-right h1 {
         font-size: clamp(1.8rem, 5vw, 2.2rem);
       }
@@ -227,8 +230,11 @@
         <!-- Right text content -->
         <div class="glass-right">
           <h1>Happy Birthday, EECHU!</h1>
-          <p>Happy 23rd Birthday, to one of the most prettiest girl I have ever known, MY PRECIOUS EECHU! I wish that you life to be filled forever with love, laughter, and all the joy
-            in the world. You deserve the very best always!. I Love you to the edge of the universe and back DEAR WIFEY.</p>
+          <p>
+            Happy 23rd Birthday, to one of the most prettiest girl I have ever known, MY PRECIOUS EECHU!
+            I wish your life to be filled forever with love, laughter, and all the joy in the world.
+            You deserve the very best always! I Love you to the edge of the universe and back, DEAR WIFEY.
+          </p>
         </div>
       </div>
     </div>
